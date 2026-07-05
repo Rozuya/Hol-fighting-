@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOL Fighting - Menu</title>
+    <style>
+        body { margin: 0; background: #1a1a1a; color: white; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
+        h1 { font-size: 3em; margin-bottom: 50px; color: #9146ff; }
+        .menu-btn { display: block; width: 250px; padding: 15px; margin: 10px; background: #333; color: white; border: 1px solid #555; border-radius: 10px; text-align: center; cursor: pointer; text-decoration: none; font-size: 1.2em; }
+        .menu-btn:hover { background: #444; }
+        
+        /* Style des Pop-up */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; }
+        .modal-content { background: #222; padding: 25px; border-radius: 15px; width: 80%; max-width: 500px; border: 1px solid #444; }
+        .close-btn { background: #9146ff; padding: 10px; border: none; color: white; cursor: pointer; margin-top: 15px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <h1>HOL FIGHTING</h1>
+
+    <a href="jeu.html" class="menu-btn">JOUER</a>
+    <div class="menu-btn" onclick="openModal('regles')">RÈGLES</div>
+    <div class="menu-btn" onclick="openModal('actu')">ACTUALITÉ</div>
+
+    <!-- Modale Règles -->
+    <div id="regles" class="modal" onclick="closeModal('regles')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <h2>Règles du jeu</h2>
+            <p>1. Choisis ton personnage.</p>
+            <p>2. Utilise tes compétences pour réduire les PV de l'adversaire.</p>
+            <p>3. Le premier à 0 PV a perdu !</p>
+            <button class="close-btn" onclick="closeModal('regles')">Fermer</button>
+        </div>
+    </div>
+
+    <!-- Modale Actualité -->
+    <div id="actu" class="modal" onclick="closeModal('actu')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <h2>Actualité</h2>
+            <p>Version 1.0 disponible !</p>
+            <p>Ajout des personnages : House of Laura, Rozuya et Dark.</p>
+            <button class="close-btn" onclick="closeModal('actu')">Fermer</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+    </script>
+</body>
+</html>
+
